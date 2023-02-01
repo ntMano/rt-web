@@ -13,7 +13,7 @@
             <p class="text-card"> Adicionar RT</p>
         </div>
 
-        <div onclick="exibir_form('2')"class="col-md card-dashboard">
+        <div onclick="exibir_form('2')" class="col-md card-dashboard">
             <p class="text-card"> Atualizar RT</p>
         </div>
     </div>
@@ -103,113 +103,14 @@
         </form>
     </div>
     <div id="att_rt" class="att_rt">
-        <h3>ATUALIZAÇÃO/CANCELAMENTO RT</h3>
+        <h3 >ATUALIZAÇÃO/CANCELAMENTO RT</h3>
+        
+        
+    </form>
         <span   class="btn-cancelamento" onclick="cancelamento_rt()">Cancelar RT</span>
         <div id="form-cancelamento">
-            <div id="att_rt">
-                <form id="att_rt" action="{%url 'rts' %}" method="POST">{% csrf_token %}
-                    <label for="ano">ANO:</label>
-                    <input type="text" id="ano" name="ano" value="{{ano}}"><br>
             
-                    <label for="parecer">PARECER:</label>
-                    <input type="text" id="parecer" name="parecer" value="{{parecer}}"><br>
-            
-                    <label for="situacao">SITUAÇÃO:</label>
-                    <select id="situacao" name="situacao" value="{{situacao}}">
-                        <option value="RECEBIDO PARA INSCRIÇÃO/RENOVAÇÃO">RECEBIDO PARA INSCRIÇÃO/RENOVAÇÃO</option>
-                        <option value="ENVIADO BOLETO / AGUARDA PAGAMENTO">ENVIADO BOLETO / AGUARDA PAGAMENTO</option>
-                        <option value="PAGAMENTO EFETUADO">PAGAMENTO EFETUADO</option>
-                        <option value="DOCUMENTAÇÃO COM PENDÊNCIAS">DOCUMENTAÇÃO COM PENDÊNCIAS</option>
-                        <option value="PARECER ARQUIVADO POR PENDÊNCIAS">PARECER ARQUIVADO POR PENDÊNCIAS</option>
-                        <option value="ENVIADO À PRESIDÊNCIA">ENVIADO À PRESIDÊNCIA</option>
-                        <option value="RECEBIDO DA PRESIDÊNCIA">RECEBIDO DA PRESIDÊNCIA</option>
-                        <option value="AGUARDA CONFECÇÃO">AGUARDA CONFECÇÃO</option>
-                        <option value="CONCLUÍDO PÓS HOMOLOGAÇÃO">CONCLUÍDO PÓS HOMOLOGAÇÃO</option>
-                        <option value="SOLICITAÇÃO DE CANCELAMENTO">SOLICITAÇÃO DE CANCELAMENTO</option>
-                        <option value="ENVIADO À PRESIDÊNCIA PARA CANCELAMENTO">ENVIADO À PRESIDÊNCIA PARA CANCELAMENTO</option>
-                        <option value="RECEBIDO DA PRESIDÊNCIA PARA CANCELAMENTO">RECEBIDO DA PRESIDÊNCIA PARA CANCELAMENTO
-                        </option>
-                        <option value="CANCELADO PÓS HOMOLOGAÇÃO">CANCELADO PÓS HOMOLOGAÇÃO</option>
-                    </select>
-            
-                    <label for="pj">PJ (Nº):</label>
-                    <input type="text" id="pj" name="pj" value="{{pj}}"><br>
-            
-                    <label for="instituicao">INSTITUIÇÃO:</label>
-                    <input type="text" id="instituicao" name="instituicao" value="{{instituicao}}"><br>
-            
-                    <label for="id_cnpj">CNPJ:</label>
-                    <input type="text" id="id_cnpj" name="cnpj" value="{{cnpj}}" ><br>    
-                   
-                    <label for="municipio">MUNICÍPIO:</label>
-                    <input type="text" id="municipio" name="municipio" value="{{municipio}}"><br>
-            
-                    <label for="data_solicitacao">DATA DA SOLICITAÇÃO:</label>
-                    <input type="date" id="data_solicitacao" name="data_solicitacao" value="{{data_solicitacao}}"><br>
-                        
-                    </input>
-                    <label for="tipo_solicitacao">TIPO DE SOLICITAÇÃO:</label>
-                    <select type="text" id="tipo_solicitacao" name="tipo_solicitacao" value="{{tipo_solicitacao}}"><br>
-                        <option value="INSCRIÇÃO">INSCRIÇÃO</option>
-                        <option value="RENOVAÇÃO">RENOVAÇÃO</option>
-                        <option value="ALTERAÇÃO DE DADOS">ALTERAÇÃO DE DADOS</option>
-                        <option value="CANCELAMENTO">CANCELAMENTO</option>
-                    </select>
-            
-                    <label for="nome_rt">NOME RT:</label>
-                    <input type="text" id="nome_rt" name="nome_rt" value="{{nome_rt}}"><br>
-            
-                    <label for="rt_tel">RT TEL:</label>
-                    <input type="text" id="rt_tel" name="rt_tel" value="{{rt_tel}}"><br>
-            
-                    <label for="rt_email">RT EMAIL:</label>
-                    <input type="email" id="rt_email" name="rt_email" value="{{rt_email}}"><br>
-            
-                    <label for="data_enc_presidencia">DATA ENC PRESIDENCIA:</label>
-                    <input type="date" id="data_enc_presidencia" name="data_enc_presidencia"
-                        value="{{data_enc_presidencia}}"><br>
-            
-                    <label for="data_rec_presidencia">DATA REC PRESIDENCIA:</label>
-                    <input type="date" id="data_rec_presidencia" name="data_rec_presidencia"
-                        value="{{data_rec_presidencia}}"><br>
-            
-                    <label for="numero_art">Nº ART:</label>
-                    <input type="text" id="numero_art" name="numero_art" value="{{numero_art}}"><br>
-            
-                    <label for="livro">LIVRO:</label>
-                    <input type="text" id="livro" name="livro" value="{{livro}}"><br>
-            
-                    <label for="folha">FOLHA:</label>
-                    <input type="text" id="folha" name="folha" value="{{folha}}"><br>
-            
-                    <label for="data_homologacao">DATA DE HOMOLOGAÇÃO:</label>
-                    <input type="date" id="data_homologacao" name="data_homologacao" value="{{data_homologacao}}"><br>
-            
-                    <label for="data_validade">DATA DE VALIDADE:</label>
-                    <input type="date" id="data_validade" name="data_validade" value="{{data_validade}}"><br><br>
-                    <div class = "cancela_rt">
-                        <h3>CANCELAMENTO</h3>
-                        <span class="btn-add-cancelamento" onclick="cancelamento_rt()"></span>
-            
-                        <div id="form-cancelamento">
-                            <label for="data_solicitacao">DATA DA SOLICITAÇÃO:</label>
-                            <input type="date" id="data_solicitacao" name="data_solicitacao" value="{{data_solicitacao}}"><br>
-            
-                            <label for="c_env_presidencia">DATA DE ENVIO A PRESIDÊNCIA:</label>
-                            <input type="date" id="c_env_presidencia" name="c_env_presidencia" value="{{c_env_presidencia}}"><br>
-            
-                            <label for="c_rec_presidencia">RECEBIDO DA PRESIDÊNCIA:</label>
-                            <input type="date" id="c_rec_presidencia" name="c_rec_presidencia" value="{{c_rec_presidencia}}"><br>
-            
-                            <label for="decisao">DECISÃO:</label>
-                            <input type="text" id="decisao" name="decisao" value="{{decisao}}"><br>
-            
-                        </div>
-            
-                    </div>    
-            
-                    <input type="submit" value="Enviar" class="btn-principal" onsubmit="return is_cnpj_valido(cnpj)">
-                </form>
+                
             
 
         </div> 

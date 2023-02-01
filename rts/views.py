@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import SolicitaRT
 from itertools import cycle
-
+import re
 # Create your views here.
-
+#TODO VERIFICAR PORQUE NÃO TÁ CHAMANDO O FORMULÁRIO
 
 LENGTH_CNPJ = 14
 
@@ -72,9 +72,9 @@ def rts(request):
             data_validade=data_validade,
         )
 
-        # if not re.fullmatch(re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'), rt_email):
+        if not re.fullmatch(re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'), rt_email):
 
-        #     return render(request, 'rts.html', {'ano': ano, 'parecer': parecer, 'situacao': situacao, 'pj': pj, 'instituicao': instituicao, 'cnpj': cnpj, 'municipio': municipio, 'data_solicitacao': data_solicitacao, 'tipo_solicitaca': tipo_solicitacao, 'nome_rt': nome_rt, 'rt_tel': rt_tel, 'data_enc_presidencia': data_enc_presidencia, 'data_rec_presidencia': data_rec_presidencia, 'numero_art': numero_art, 'livro': livro, 'folha': folha, 'data_homologacao': data_homologacao, 'data_validade': data_validade})
+            return render(request, 'rts.html', {'ano': ano, 'parecer': parecer, 'situacao': situacao, 'pj': pj, 'instituicao': instituicao, 'cnpj': cnpj, 'municipio': municipio, 'data_solicitacao': data_solicitacao, 'tipo_solicitaca': tipo_solicitacao, 'nome_rt': nome_rt, 'rt_tel': rt_tel, 'data_enc_presidencia': data_enc_presidencia, 'data_rec_presidencia': data_rec_presidencia, 'numero_art': numero_art, 'livro': livro, 'folha': folha, 'data_homologacao': data_homologacao, 'data_validade': data_validade})
 
         is_cnpj_valido(cnpj)
 
