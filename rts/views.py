@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import SolicitaRT
 from itertools import cycle
 import re
+from .models import SolicitaRT
 # Create your views here.
 #TODO VERIFICAR PORQUE NÃO TÁ CHAMANDO O FORMULÁRIO
 
@@ -28,7 +29,8 @@ def is_cnpj_valido(cnpj: str) -> bool:
 
 def rts(request):
     if request.method == "GET":
-        return render(request, 'rts.html')
+        lista_rts = SolicitaRT.objects.all()
+        return render(request, 'rts.html', {'rts': lista_rts})
     elif request.method == "POST":
         ano = request.POST.get('ano')
         parecer = request.POST.get('parecer')

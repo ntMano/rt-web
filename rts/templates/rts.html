@@ -42,7 +42,7 @@
                 <option value="RECEBIDO DA PRESIDÊNCIA PARA CANCELAMENTO">RECEBIDO DA PRESIDÊNCIA PARA CANCELAMENTO
                 </option>
                 <option value="CANCELADO PÓS HOMOLOGAÇÃO">CANCELADO PÓS HOMOLOGAÇÃO</option>
-            </select>
+            </select><br>
 
             <label for="pj">PJ (Nº):</label>
             <input type="text" id="pj" name="pj" value="{{pj}}"><br>
@@ -105,8 +105,15 @@
     </div>
     <div id="att_rt" class="att_rt">
         <h2 >ATUALIZAÇÃO/CANCELAMENTO RT</h2>
+        <p></p>
+        
+        <select id="rt-select" onchange="dados_rt()" id="select-parecer" >
+        {%for rt in rts %}
 
-        <select name="" id=""></select>
+            <option value="{{SolicitaRt.id}}">{{rt.parecer}} / {{rt.ano}}</option>
+        {% endfor %}
+        </select><br>
+        
 
 
     <form id onclick='att_rt' action="{%url 'rts' %}" method="POST">{% csrf_token %}

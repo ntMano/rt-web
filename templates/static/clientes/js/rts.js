@@ -38,3 +38,10 @@ function exibir_form(tipo){
 
 console.log(adicionar_rt);
 console.log(att_rt);
+
+function dados_rt(){
+   rt = document.getElementById('rt-select') 
+   console.log(rt.value)
+
+
+}
