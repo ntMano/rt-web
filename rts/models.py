@@ -1,5 +1,4 @@
 from django.db import models
-import re
 from django.http import HttpResponse
 
 # Create your models here.

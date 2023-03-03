@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import SolicitaRT
 from itertools import cycle
 import re
@@ -87,3 +87,10 @@ def rts(request):
         solicita_rt.save()
 
     return HttpResponse('teste')
+
+
+def att_rt(request):
+    id_rt = request.POST.get('id_rt')
+    rt = SolicitaRT.objects.filter(id=id_rt)
+    print(rt)
+    return JsonResponse({"teste": 1})

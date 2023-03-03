@@ -39,9 +39,23 @@ function exibir_form(tipo){
 console.log(adicionar_rt);
 console.log(att_rt);
 
-function dados_rt(){
-   rt = document.getElementById('rt-select') 
-   console.log(rt.value)
+function dados_rt() {
+   rt = document.getElementById('rt-select')
+   csrf_token = document.querySelector('[name=csrfmiddlewaretoken]').value
+   data = new FormData()
+   data.append('id_rt', rt.value)
+   //console.log(rt.value)
+   fetch("/rts/att_rt/", {
+      method: 'POST',
+      headers: {
+         'X-CSRFToken': csrf_token,
+      },
+      body: data
+   }).then(function (result) {
+      return result.json()
+   }).then(function (data) {
+      console.log('teste')
 
+   })
 
 }

@@ -107,10 +107,10 @@
         <h2 >ATUALIZAÇÃO/CANCELAMENTO RT</h2>
         <p></p>
         
-        <select id="rt-select" onchange="dados_rt()" id="select-parecer" >
+        <select id="rt-select" onchange="dados_rt()">
         {%for rt in rts %}
 
-            <option value="{{SolicitaRt.id}}">{{rt.parecer}} / {{rt.ano}}</option>
+            <option value="{{rt.id}}">{{rt.parecer}} / {{rt.ano}}</option>
         {% endfor %}
         </select><br>
         
